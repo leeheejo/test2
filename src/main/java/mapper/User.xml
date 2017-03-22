@@ -1,0 +1,16 @@
+<!DOCTYPE mapper   
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"   
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="User">
+	<insert id="insertUser" parameterType="HashMap"> 
+		INSERT INTO user (u_id,u_pwd,u_phone) VALUES (#{uId}, #{uPwd}, #{uPhone});
+	</insert>
+	
+	<select id="loginCheck" parameterType ="HashMap" resultType ="Integer">
+		SELECT count(*) 
+		FROM user 
+		WHERE u_id=#{uId} and u_pwd =#{uId};
+	</select>
+
+</mapper>
