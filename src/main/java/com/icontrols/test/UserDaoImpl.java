@@ -11,18 +11,36 @@ public class UserDaoImpl implements UserDao {
 
 	@Autowired
 	private SqlSessionTemplate sqlSession;
-	private final String PATH = "User.";
+	
+	//mapper's name 
+	private final String PATH = "User."; 
 
+	/*  call sqlSession
+	 *  @RequestParam map
+	 */
 	@Override
 	public void insertUser(HashMap<String, Object> map) {
 		// TODO Auto-generated method stub
+		
+		/*  access to the mapper
+		 *  @RequestParam statement mapper's name + statement's id
+		 *  @RequestParam parameter (for VALUES clause of the INSERT statement)
+		 */
 		sqlSession.insert(PATH + "insertUser", map);
 	}
 
+	
+	/*  call sqlSession
+	 *  @RequestParam map
+	 */
 	@Override
 	public int loginCheck(HashMap<String, Object> map) {
 		// TODO Auto-generated method stub
 
+		/*  access to the mapper
+		 *  @RequestParam statement statement mapper's name + statement's id
+		 *  @RequestParam parameter (for WHERE clause of the SELECT statement)
+		 */
 		return sqlSession.selectOne(PATH + "loginCheck", map);
 	}
 
